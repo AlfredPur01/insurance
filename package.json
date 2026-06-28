@@ -85,5 +85,10 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "7.3.6"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "nitro@3.0.260610-beta": "patches/nitro@3.0.260610-beta.patch"
+    }
   }
 }
