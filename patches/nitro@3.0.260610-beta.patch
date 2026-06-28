@@ -1,0 +1,15 @@
+diff --git a/dist/_build/common.mjs b/dist/_build/common.mjs
+index 76694ff062bae1ef5f6d548ae80b53dcfd8362ef..026c0db1c3eb67604d8024acda616d363faf5549 100644
+--- a/dist/_build/common.mjs
++++ b/dist/_build/common.mjs
+@@ -8296,7 +8296,9 @@ async function copyPublicAssets(nitro) {
+ 			await Promise.all(publicAssets.map(async (file) => {
+ 				const src = join$2(assetDir, file);
+ 				const dst = join$2(dstDir, file);
+-				if (!existsSync(dst)) await promises.cp(src, dst);
++				if (!existsSync(dst)) await promises.cp(src, dst).catch((err) => {
++					if (err?.code !== "EPERM") throw err;
++				});
+ 			}));
+ 		}
+ 	}
