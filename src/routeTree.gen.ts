@@ -16,6 +16,11 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ClaimsAdvocacyRouteImport } from './routes/claims-advocacy'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as IndustriesIndexRouteImport } from './routes/industries/index'
+import { Route as IndustriesMarineRouteImport } from './routes/industries/marine'
+import { Route as IndustriesEngineeringInfrastructureRouteImport } from './routes/industries/engineering-infrastructure'
+import { Route as IndustriesEnergyRouteImport } from './routes/industries/energy'
+import { Route as IndustriesAviationRouteImport } from './routes/industries/aviation'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -52,24 +57,59 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesMarineRoute = IndustriesMarineRouteImport.update({
+  id: '/marine',
+  path: '/marine',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesEngineeringInfrastructureRoute =
+  IndustriesEngineeringInfrastructureRouteImport.update({
+    id: '/engineering-infrastructure',
+    path: '/engineering-infrastructure',
+    getParentRoute: () => IndustriesRoute,
+  } as any)
+const IndustriesEnergyRoute = IndustriesEnergyRouteImport.update({
+  id: '/energy',
+  path: '/energy',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesAviationRoute = IndustriesAviationRouteImport.update({
+  id: '/aviation',
+  path: '/aviation',
+  getParentRoute: () => IndustriesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/claims-advocacy': typeof ClaimsAdvocacyRoute
   '/contact': typeof ContactRoute
-  '/industries': typeof IndustriesRoute
+  '/industries': typeof IndustriesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/industries/aviation': typeof IndustriesAviationRoute
+  '/industries/energy': typeof IndustriesEnergyRoute
+  '/industries/engineering-infrastructure': typeof IndustriesEngineeringInfrastructureRoute
+  '/industries/marine': typeof IndustriesMarineRoute
+  '/industries/': typeof IndustriesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/claims-advocacy': typeof ClaimsAdvocacyRoute
   '/contact': typeof ContactRoute
-  '/industries': typeof IndustriesRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/industries/aviation': typeof IndustriesAviationRoute
+  '/industries/energy': typeof IndustriesEnergyRoute
+  '/industries/engineering-infrastructure': typeof IndustriesEngineeringInfrastructureRoute
+  '/industries/marine': typeof IndustriesMarineRoute
+  '/industries': typeof IndustriesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -77,9 +117,14 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/claims-advocacy': typeof ClaimsAdvocacyRoute
   '/contact': typeof ContactRoute
-  '/industries': typeof IndustriesRoute
+  '/industries': typeof IndustriesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/industries/aviation': typeof IndustriesAviationRoute
+  '/industries/energy': typeof IndustriesEnergyRoute
+  '/industries/engineering-infrastructure': typeof IndustriesEngineeringInfrastructureRoute
+  '/industries/marine': typeof IndustriesMarineRoute
+  '/industries/': typeof IndustriesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,15 +136,24 @@ export interface FileRouteTypes {
     | '/industries'
     | '/services'
     | '/sitemap.xml'
+    | '/industries/aviation'
+    | '/industries/energy'
+    | '/industries/engineering-infrastructure'
+    | '/industries/marine'
+    | '/industries/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/claims-advocacy'
     | '/contact'
-    | '/industries'
     | '/services'
     | '/sitemap.xml'
+    | '/industries/aviation'
+    | '/industries/energy'
+    | '/industries/engineering-infrastructure'
+    | '/industries/marine'
+    | '/industries'
   id:
     | '__root__'
     | '/'
@@ -109,6 +163,11 @@ export interface FileRouteTypes {
     | '/industries'
     | '/services'
     | '/sitemap.xml'
+    | '/industries/aviation'
+    | '/industries/energy'
+    | '/industries/engineering-infrastructure'
+    | '/industries/marine'
+    | '/industries/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -116,7 +175,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ClaimsAdvocacyRoute: typeof ClaimsAdvocacyRoute
   ContactRoute: typeof ContactRoute
-  IndustriesRoute: typeof IndustriesRoute
+  IndustriesRoute: typeof IndustriesRouteWithChildren
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -172,15 +231,71 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industries/': {
+      id: '/industries/'
+      path: '/'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/marine': {
+      id: '/industries/marine'
+      path: '/marine'
+      fullPath: '/industries/marine'
+      preLoaderRoute: typeof IndustriesMarineRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/engineering-infrastructure': {
+      id: '/industries/engineering-infrastructure'
+      path: '/engineering-infrastructure'
+      fullPath: '/industries/engineering-infrastructure'
+      preLoaderRoute: typeof IndustriesEngineeringInfrastructureRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/energy': {
+      id: '/industries/energy'
+      path: '/energy'
+      fullPath: '/industries/energy'
+      preLoaderRoute: typeof IndustriesEnergyRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/aviation': {
+      id: '/industries/aviation'
+      path: '/aviation'
+      fullPath: '/industries/aviation'
+      preLoaderRoute: typeof IndustriesAviationRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
   }
 }
+
+interface IndustriesRouteChildren {
+  IndustriesAviationRoute: typeof IndustriesAviationRoute
+  IndustriesEnergyRoute: typeof IndustriesEnergyRoute
+  IndustriesEngineeringInfrastructureRoute: typeof IndustriesEngineeringInfrastructureRoute
+  IndustriesMarineRoute: typeof IndustriesMarineRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
+}
+
+const IndustriesRouteChildren: IndustriesRouteChildren = {
+  IndustriesAviationRoute: IndustriesAviationRoute,
+  IndustriesEnergyRoute: IndustriesEnergyRoute,
+  IndustriesEngineeringInfrastructureRoute:
+    IndustriesEngineeringInfrastructureRoute,
+  IndustriesMarineRoute: IndustriesMarineRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
+}
+
+const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
+  IndustriesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ClaimsAdvocacyRoute: ClaimsAdvocacyRoute,
   ContactRoute: ContactRoute,
-  IndustriesRoute: IndustriesRoute,
+  IndustriesRoute: IndustriesRouteWithChildren,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }

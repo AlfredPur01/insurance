@@ -4,6 +4,7 @@ import { ArrowRight, Phone, Mail, Users, ClipboardCheck, Shield, Globe2, Handsha
 import { FadeIn } from "@/components/site/FadeIn";
 import { PageHero } from "@/components/site/PageHero";
 import { toast } from "sonner";
+import { submitContactForm } from "@/server/contact";
 import heroImg from "@/assets/hero-building.jpg";
 import lagosImg from "@/assets/office-lagos.jpg";
 import branchImg from "@/assets/office-branch.jpg";
@@ -39,10 +40,15 @@ function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 700));
-    toast.success("Enquiry submitted — our team will be in touch shortly.");
-    setForm({ fullName: "", company: "", email: "", phone: "", industry: "", service: "", message: "" });
-    setSubmitting(false);
+    try {
+      await submitContactForm({ data: form });
+      toast.success("Enquiry submitted — our team will be in touch shortly.");
+      setForm({ fullName: "", company: "", email: "", phone: "", industry: "", service: "", message: "" });
+    } catch {
+      toast.error("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
