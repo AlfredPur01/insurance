@@ -4,7 +4,7 @@ import { ArrowRight, Phone, Mail, Users, ClipboardCheck, Shield, Globe2, Handsha
 import { FadeIn } from "@/components/site/FadeIn";
 import { PageHero } from "@/components/site/PageHero";
 import { toast } from "sonner";
-import { submitContactForm } from "@/server/contact";
+import { submitContactForm } from "@/actions/contact";
 import heroImg from "@/assets/hero-building.jpg";
 import lagosImg from "@/assets/office-lagos.jpg";
 import branchImg from "@/assets/office-branch.jpg";

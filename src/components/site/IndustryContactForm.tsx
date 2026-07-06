@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { toast } from "sonner";
-import { submitEnquiryForm } from "@/server/enquiry";
+import { submitEnquiryForm } from "@/actions/enquiry";
 import { FadeIn } from "./FadeIn";
 
 interface Props {
