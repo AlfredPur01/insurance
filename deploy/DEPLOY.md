@@ -1,78 +1,117 @@
-# VPS Deployment Guide
+# Deployment Guide
 
-## One-time VPS setup
+## Database — Turso (required before first deploy)
+
+This app uses [Turso](https://turso.tech/) — a serverless SQLite service that works on
+Vercel, Cloudflare, and any Node.js server (VPS).
+
+```bash
+# 1. Install the Turso CLI
+curl -sSfL https://get.tur.so/install.sh | bash
+
+# 2. Sign up / log in
+turso auth login
+
+# 3. Create a database
+turso db create aib
+
+# 4. Get the connection URL
+turso db show aib --url
+# → libsql://aib-<username>.turso.io
+
+# 5. Create an auth token
+turso db tokens create aib
+# → <token>
+```
+
+Set these two values as environment variables in both Vercel (dashboard → Settings →
+Environment Variables) and your VPS (`deploy/ecosystem.config.cjs`):
+
+| Variable | Value |
+|---|---|
+| `TURSO_DATABASE_URL` | `libsql://aib-<username>.turso.io` |
+| `TURSO_AUTH_TOKEN` | `<token from step 5>` |
+
+### Apply the DB schema (once, after creating the database)
+
+```bash
+TURSO_DATABASE_URL=libsql://aib-<username>.turso.io \
+TURSO_AUTH_TOKEN=<token> \
+pnpm db:push
+```
+
+---
+
+## Vercel deployment
+
+Push to GitHub — Vercel redeploys automatically.
+Add the two Turso env vars in Vercel dashboard → Settings → Environment Variables.
+
+---
+
+## VPS deployment (one-time setup)
 
 ```bash
 # 1. Install Node.js 20+
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt install -y nodejs
 
-# 2. Install pnpm
-npm install -g pnpm
+# 2. Install pnpm + PM2
+npm install -g pnpm pm2
 
-# 3. Install PM2
-npm install -g pm2
-
-# 4. Install Nginx + Certbot
+# 3. Install Nginx + Certbot
 sudo apt install -y nginx certbot python3-certbot-nginx
-
-# 5. Create data directory for SQLite
-sudo mkdir -p /var/data/aib
-sudo chown $USER:$USER /var/data/aib
 ```
 
-## Deploy (every release)
+### VPS — every release
 
 ```bash
-# On the VPS — pull latest code
 git pull origin main
-
-# Install dependencies
 pnpm install --frozen-lockfile
-
-# Create/update DB tables from schema
-pnpm db:push
-
-# Build the app (outputs to .output/)
 pnpm build
 
-# Start (first time) or reload (subsequent deploys)
-pm2 start deploy/ecosystem.config.cjs   # first time
-pm2 reload aib-website                  # subsequent deploys
+# First deploy
+pm2 start deploy/ecosystem.config.cjs
+pm2 save && pm2 startup   # follow printed command
 
-# Save PM2 process list so it survives reboots
-pm2 save
-pm2 startup   # follow the printed command to enable on boot
+# Subsequent deploys
+pm2 reload aib-website
 ```
 
-## SSL certificate (first time only)
-
-```bash
-# Replace yourdomain.com with your actual domain
-sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
-```
-
-## Nginx config
+### Nginx config
 
 ```bash
 sudo cp deploy/nginx.conf /etc/nginx/sites-available/aib
-# Edit the file and replace yourdomain.com with your actual domain
+# Edit and replace yourdomain.com
 sudo nano /etc/nginx/sites-available/aib
-
 sudo ln -s /etc/nginx/sites-available/aib /etc/nginx/sites-enabled/aib
-sudo nginx -t          # verify config
-sudo systemctl reload nginx
+sudo nginx -t && sudo systemctl reload nginx
 ```
 
-## Environment variables
-
-Set in `deploy/ecosystem.config.cjs`:
-- `PORT` — port the Node.js server listens on (default 3000)
-- `DATABASE_PATH` — absolute path to the SQLite file (default `/var/data/aib/aib.db`)
-
-## Drizzle Studio (inspect DB on VPS)
+### SSL certificate
 
 ```bash
-# On VPS — opens a browser UI to view/edit submissions
-DATABASE_PATH=/var/data/aib/aib.db pnpm db:studio
+sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+```
+
+---
+
+## Local development
+
+```bash
+# Uses a local SQLite file (no Turso account needed)
+pnpm dev
+
+# To test with Turso locally:
+TURSO_DATABASE_URL=libsql://... TURSO_AUTH_TOKEN=... pnpm dev
+```
+
+### Drizzle Studio (inspect DB)
+
+```bash
+# Local file DB
+pnpm db:studio
+
+# Turso cloud DB
+TURSO_DATABASE_URL=libsql://... TURSO_AUTH_TOKEN=... pnpm db:studio
 ```

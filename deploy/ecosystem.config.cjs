@@ -10,9 +10,9 @@ module.exports = {
       env: {
         NODE_ENV: "production",
         PORT: 3000,
-        // Set this to an absolute path outside the app directory so the DB
-        // survives redeployments: e.g. /var/data/aib/aib.db
-        DATABASE_PATH: "/var/data/aib/aib.db",
+        // Turso database credentials — set these before starting
+        TURSO_DATABASE_URL: "libsql://your-db-name.turso.io",
+        TURSO_AUTH_TOKEN: "your-turso-auth-token",
       },
     },
   ],

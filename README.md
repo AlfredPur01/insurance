@@ -17,7 +17,7 @@ Corporate website for **AIB (African Insurance Brokers Limited)** — a speciali
 | UI Components | [shadcn/ui](https://ui.shadcn.com/) + [Radix UI](https://www.radix-ui.com/) |
 | Animations | [Framer Motion](https://www.framer.com/motion/) |
 | Build Tool | [Vite](https://vitejs.dev/) 7 + Nitro (node-server preset) |
-| Database | SQLite via [Drizzle ORM](https://orm.drizzle.team/) + better-sqlite3 |
+| Database | [Turso](https://turso.tech/) (serverless SQLite) via [Drizzle ORM](https://orm.drizzle.team/) + @libsql/client |
 | Package Manager | [pnpm](https://pnpm.io/) 10.x |
 | Deployment | Node.js + PM2 + Nginx (VPS) |
 
@@ -91,12 +91,11 @@ cd insurance
 
 pnpm install
 
-# Create the SQLite database tables
-pnpm db:push
-
-# Start the dev server
+# Start the dev server (uses a local SQLite file — no Turso account needed)
 pnpm dev
 ```
+
+For form submissions to persist in local dev, run `pnpm db:push` once first to create the local DB tables.
 
 The app runs at `http://localhost:5173` (or the next available port).
 
@@ -104,12 +103,21 @@ The app runs at `http://localhost:5173` (or the next available port).
 
 ## Database
 
-Form submissions are persisted to a local SQLite file (`./data/aib.db` by default).
+Form submissions are stored in [Turso](https://turso.tech/) — a serverless SQLite service that works on Vercel, Cloudflare, and any Node.js VPS. Locally it falls back to a file-based SQLite database (no account needed for development).
 
 | Table | Purpose |
 |---|---|
 | `contact_submissions` | General contact form submissions from `/contact` |
 | `industry_enquiries` | Industry-specific enquiry form submissions |
+
+### Setup (production)
+
+1. Create a Turso database (`turso db create aib`)
+2. Get the URL (`turso db show aib --url`) and an auth token (`turso db tokens create aib`)
+3. Set `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` as environment variables in Vercel
+4. Apply the schema once: `TURSO_DATABASE_URL=... TURSO_AUTH_TOKEN=... pnpm db:push`
+
+See [`deploy/DEPLOY.md`](deploy/DEPLOY.md) for full instructions.
 
 ### Useful DB commands
 
@@ -122,12 +130,6 @@ pnpm db:generate
 
 # Open Drizzle Studio (visual DB browser)
 pnpm db:studio
-```
-
-To use a custom DB path, set the `DATABASE_PATH` environment variable:
-
-```bash
-DATABASE_PATH=/var/data/aib/aib.db pnpm db:push
 ```
 
 ---
@@ -163,8 +165,9 @@ The app runs on port `3000` by default (configurable in `deploy/ecosystem.config
 
 | Variable | Default | Description |
 |---|---|---|
-| `DATABASE_PATH` | `./data/aib.db` | Absolute path to the SQLite database file |
-| `PORT` | `3000` | Port the Node.js server listens on |
+| `TURSO_DATABASE_URL` | `file:./data/aib.db` | Turso DB URL (`libsql://...`) or local file path |
+| `TURSO_AUTH_TOKEN` | _(none)_ | Turso auth token (required for cloud DB, not local) |
+| `PORT` | `3000` | Port the Node.js server listens on (VPS only) |
 | `NODE_ENV` | `development` | Set to `production` for production builds |
 
 ---

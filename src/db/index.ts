@@ -1,13 +1,10 @@
-import Database from "better-sqlite3";
-import { drizzle } from "drizzle-orm/better-sqlite3";
-import { mkdirSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { createClient } from "@libsql/client";
+import { drizzle } from "drizzle-orm/libsql";
 import * as schema from "./schema";
 
-const dbPath = process.env.DATABASE_PATH ?? "./data/aib.db";
-mkdirSync(dirname(resolve(dbPath)), { recursive: true });
+const client = createClient({
+  url: process.env.TURSO_DATABASE_URL ?? "file:./data/aib.db",
+  authToken: process.env.TURSO_AUTH_TOKEN,
+});
 
-const sqlite = new Database(dbPath);
-sqlite.pragma("journal_mode = WAL");
-
-export const db = drizzle(sqlite, { schema });
+export const db = drizzle(client, { schema });
