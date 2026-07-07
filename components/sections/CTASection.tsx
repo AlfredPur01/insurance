@@ -18,7 +18,7 @@ export function CTASection({
   description,
   ctaLabel = 'Request Consultation',
   ctaTo = '/contact',
-  image = '/images/engineers-site.jpg',
+  image = '/images/hero-building.jpg',
 }: CTASectionProps) {
   return (
     <section className="relative isolate overflow-hidden bg-navy-deep py-20 text-white md:py-28">
