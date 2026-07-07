@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: oklch(0.21 0.05 254);
+  --color-navy-deep: oklch(0.16 0.05 254);
+  --color-navy-soft: oklch(0.27 0.05 254);
+  --color-brand-red: oklch(0.58 0.21 27);
+  --color-brand-red-hover: oklch(0.52 0.22 27);
+  --color-cream: oklch(0.985 0.005 240);
+  --color-ink: oklch(0.18 0.02 254);
+
+  --color-background: oklch(1 0 0);
+  --color-foreground: oklch(0.18 0.02 254);
+  --color-muted-foreground: oklch(0.5 0.02 254);
+  --color-border: oklch(0.9 0.01 254);
+  --color-input: oklch(0.92 0.01 254);
+  --color-ring: oklch(0.58 0.21 27);
+  --color-accent: oklch(0.96 0.01 254);
+
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-brand-red);
+}
+
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+/* Like container-page, but pinned to the left edge instead of centered.
+   Hero sections fade their background image to transparent on the right,
+   so the text column hugs the left edge on wide desktop screens. */
+@utility container-hero {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-hero {
+    padding-inline: 2rem;
+  }
+}
+
+/* Skip-to-content accessibility link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--color-brand-red);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0 0 0.25rem 0;
+}
+.skip-link:focus {
+  left: 0;
+}
