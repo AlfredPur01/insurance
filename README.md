@@ -11,15 +11,12 @@ Corporate website for **AIB (African Insurance Brokers Limited)** — a speciali
 
 | Layer | Technology |
 |---|---|
-| Framework | [TanStack Start](https://tanstack.com/start) v1 (React 19, SSR) |
-| Routing | [TanStack Router](https://tanstack.com/router) v1 (file-based) |
+| Framework | [Next.js 15](https://nextjs.org/) (App Router, React 19) |
 | Styling | [Tailwind CSS](https://tailwindcss.com/) v4 |
-| UI Components | [shadcn/ui](https://ui.shadcn.com/) + [Radix UI](https://www.radix-ui.com/) |
 | Animations | [Framer Motion](https://www.framer.com/motion/) |
-| Build Tool | [Vite](https://vitejs.dev/) 7 + Nitro (node-server preset) |
-| Database | [Turso](https://turso.tech/) (serverless SQLite) via [Drizzle ORM](https://orm.drizzle.team/) + @libsql/client |
-| Package Manager | [pnpm](https://pnpm.io/) 10.x |
-| Deployment | Node.js + PM2 + Nginx (VPS) |
+| Email | [Resend](https://resend.com/) + [React Email](https://react.email/) |
+| Package Manager | [npm](https://npmjs.com/) |
+| Deployment | [Vercel](https://vercel.com/) |
 
 ---
 
@@ -27,7 +24,7 @@ Corporate website for **AIB (African Insurance Brokers Limited)** — a speciali
 
 | Route | Description |
 |---|---|
-| `/` | Home — hero, services overview, stats, CTA |
+| `/` | Home — hero, credentials, sector expertise, market execution, CTA |
 | `/services` | Services — risk advisory, market execution, claims advocacy |
 | `/industries` | Industries — overview of all four sectors |
 | `/industries/energy` | Energy sector detail page |
@@ -44,34 +41,56 @@ Corporate website for **AIB (African Insurance Brokers Limited)** — a speciali
 
 ```
 insurance/
-├── src/
-│   ├── assets/              # Images and logos
-│   ├── components/
-│   │   ├── site/            # Layout components (Header, Footer, PageHero, etc.)
-│   │   └── ui/              # shadcn/ui primitives
-│   ├── db/
-│   │   ├── schema.ts        # Drizzle table definitions
-│   │   └── index.ts         # DB connection singleton
-│   ├── routes/              # File-based pages (TanStack Router)
-│   │   ├── __root.tsx       # Root layout (Header + Footer)
-│   │   ├── index.tsx        # Home page
-│   │   ├── industries/
-│   │   │   ├── index.tsx    # Industries overview
-│   │   │   ├── energy.tsx
-│   │   │   ├── marine.tsx
-│   │   │   ├── aviation.tsx
-│   │   │   └── engineering-infrastructure.tsx
-│   │   └── contact.tsx
-│   └── server/
-│       ├── contact.ts       # submitContactForm server function
-│       └── enquiry.ts       # submitEnquiryForm server function
-├── deploy/
-│   ├── ecosystem.config.cjs # PM2 process config
-│   ├── nginx.conf           # Nginx reverse-proxy + SSL config
-│   └── DEPLOY.md            # Step-by-step VPS deployment guide
-├── drizzle.config.ts        # Drizzle Kit config
-├── vite.config.ts           # Vite + Nitro config (node-server preset)
-└── pnpm-workspace.yaml
+├── app/
+│   ├── layout.tsx               # Root layout (Navbar + Footer + JSON-LD)
+│   ├── page.tsx                 # Home page
+│   ├── globals.css              # Tailwind v4 + brand theme
+│   ├── sitemap.ts               # Auto-generated sitemap.xml
+│   ├── robots.ts                # robots.txt
+│   ├── actions/
+│   │   ├── contact.ts           # Server Action — contact form (Resend)
+│   │   └── enquiry.ts           # Server Action — industry enquiry form (Resend)
+│   ├── about/page.tsx
+│   ├── services/page.tsx
+│   ├── industries/
+│   │   ├── page.tsx
+│   │   ├── energy/page.tsx
+│   │   ├── marine/page.tsx
+│   │   ├── aviation/page.tsx
+│   │   └── engineering-infrastructure/page.tsx
+│   ├── claims-advocacy/page.tsx
+│   └── contact/page.tsx
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.tsx           # Sticky nav, scroll-aware, industries dropdown
+│   │   └── Footer.tsx
+│   ├── ui/
+│   │   ├── Button.tsx
+│   │   ├── Container.tsx
+│   │   └── SectionWrapper.tsx
+│   ├── sections/
+│   │   ├── PageHero.tsx         # Full-viewport hero with background image
+│   │   ├── CTASection.tsx
+│   │   ├── IndustryContactForm.tsx
+│   │   ├── HomeHero.tsx
+│   │   ├── WorldMap.tsx
+│   │   ├── ContactForm.tsx
+│   │   └── FaqAccordion.tsx
+│   └── animations/
+│       ├── FadeIn.tsx           # Scroll-triggered fade-up (Framer Motion)
+│       └── CountUp.tsx          # Animated number counter
+├── emails/
+│   ├── notification.tsx         # Email to AIB team on new enquiry
+│   └── confirmation.tsx         # Confirmation email to visitor
+├── lib/
+│   └── resend.ts                # Resend client singleton
+├── public/
+│   └── images/                  # All site images and logo
+├── types/
+│   └── index.ts
+├── next.config.ts
+├── postcss.config.mjs
+└── tsconfig.json
 ```
 
 ---
@@ -81,7 +100,6 @@ insurance/
 ### Prerequisites
 
 - Node.js 20+
-- pnpm 10.x (`npm install -g pnpm`)
 
 ### Install & run locally
 
@@ -89,86 +107,62 @@ insurance/
 git clone https://github.com/AlfredPur01/insurance.git
 cd insurance
 
-pnpm install
+npm install
 
-# Start the dev server (uses a local SQLite file — no Turso account needed)
-pnpm dev
+# Create a local env file
+cp .env.example .env.local
+# Add your RESEND_API_KEY to .env.local
+
+npm run dev
 ```
 
-For form submissions to persist in local dev, run `pnpm db:push` once first to create the local DB tables.
+The app runs at `http://localhost:3000`.
 
-The app runs at `http://localhost:5173` (or the next available port).
+> Without a `RESEND_API_KEY`, the contact forms will return an error message prompting the user to email directly — the rest of the site works fully without it.
 
 ---
 
-## Database
+## Email (Resend)
 
-Form submissions are stored in [Turso](https://turso.tech/) — a serverless SQLite service that works on Vercel, Cloudflare, and any Node.js VPS. Locally it falls back to a file-based SQLite database (no account needed for development).
+Contact form submissions are delivered by email via [Resend](https://resend.com/).
 
-| Table | Purpose |
+| Variable | Description |
 |---|---|
-| `contact_submissions` | General contact form submissions from `/contact` |
-| `industry_enquiries` | Industry-specific enquiry form submissions |
+| `RESEND_API_KEY` | Your Resend API key |
+
+**On form submission:**
+1. A notification email is sent to `info@aibltd.insure` with all form fields.
+2. A branded confirmation email is sent to the visitor.
 
 ### Setup (production)
 
-1. Create a Turso database (`turso db create aib`)
-2. Get the URL (`turso db show aib --url`) and an auth token (`turso db tokens create aib`)
-3. Set `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` as environment variables in Vercel
-4. Apply the schema once: `TURSO_DATABASE_URL=... TURSO_AUTH_TOKEN=... pnpm db:push`
-
-See [`deploy/DEPLOY.md`](deploy/DEPLOY.md) for full instructions.
-
-### Useful DB commands
-
-```bash
-# Sync schema to DB (run after schema changes)
-pnpm db:push
-
-# Generate SQL migration files
-pnpm db:generate
-
-# Open Drizzle Studio (visual DB browser)
-pnpm db:studio
-```
+1. Create a [Resend](https://resend.com/) account and obtain an API key.
+2. Add `RESEND_API_KEY` to your Vercel environment variables (dashboard → Settings → Environment Variables).
+3. Once your domain (`aibltd.insure`) is verified in Resend, update the `from` address in `app/actions/contact.ts` and `app/actions/enquiry.ts` from `onboarding@resend.dev` to `website@aibltd.insure` (or similar).
 
 ---
 
 ## Build
 
 ```bash
-pnpm build
+npm run build
 ```
-
-Output is written to `.output/`. The server entry point is `.output/server/index.mjs`.
 
 ---
 
-## Deployment (VPS)
+## Deployment (Vercel)
 
-See [`deploy/DEPLOY.md`](deploy/DEPLOY.md) for the full step-by-step guide.
+Push to `main` — Vercel redeploys automatically.
 
-**Summary:**
-
-1. Pull code, run `pnpm install --frozen-lockfile`
-2. Run `pnpm db:push` to create/update DB tables
-3. Run `pnpm build`
-4. Start with PM2: `pm2 start deploy/ecosystem.config.cjs`
-5. Configure Nginx using `deploy/nginx.conf` (replace `yourdomain.com`)
-6. Obtain SSL certificate: `certbot --nginx -d yourdomain.com`
-
-The app runs on port `3000` by default (configurable in `deploy/ecosystem.config.cjs`). Nginx proxies port `443` → `3000`.
+Add the `RESEND_API_KEY` environment variable in the Vercel dashboard before deploying.
 
 ---
 
 ## Environment Variables
 
-| Variable | Default | Description |
+| Variable | Required | Description |
 |---|---|---|
-| `TURSO_DATABASE_URL` | `file:./data/aib.db` | Turso DB URL (`libsql://...`) or local file path |
-| `TURSO_AUTH_TOKEN` | _(none)_ | Turso auth token (required for cloud DB, not local) |
-| `PORT` | `3000` | Port the Node.js server listens on (VPS only) |
-| `NODE_ENV` | `development` | Set to `production` for production builds |
+| `RESEND_API_KEY` | Yes (for forms) | Resend API key for email delivery |
 
 ---
 
