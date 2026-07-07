@@ -12,7 +12,7 @@ const INDUSTRIES: { label: string; href: string }[] = [
 ]
 
 const SOCIALS = [
-  { Icon: Linkedin, href: 'https://www.linkedin.com', label: 'LinkedIn' },
+  { Icon: Linkedin, href: 'https://www.linkedin.com/company/advocate-insurance-brokers-ltd/', label: 'LinkedIn' },
   { Icon: Mail, href: 'mailto:info@aibltd.insure', label: 'Email' },
   { Icon: Globe, href: 'https://aibltd.insure', label: 'Website' },
 ]
