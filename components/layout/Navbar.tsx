@@ -77,7 +77,7 @@ export function Navbar() {
         <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Advocate Insurance Brokers home">
           <div className="rounded-md bg-white p-1 shadow-sm ring-1 ring-black/5">
             <Image
-              src="/images/logo-aib.svg"
+              src="/images/logo-aib.png"
               alt="Advocate Insurance Brokers"
               width={44}
               height={44}

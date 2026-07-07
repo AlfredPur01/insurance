@@ -23,7 +23,7 @@ export function Footer() {
       <div className="container-page grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="inline-block rounded-md bg-white p-1 ring-1 ring-white/10">
-            <Image src="/images/logo-aib.svg" alt="Advocate Insurance Brokers" width={48} height={48} className="h-12 w-12" />
+            <Image src="/images/logo-aib.png" alt="Advocate Insurance Brokers" width={48} height={48} className="h-12 w-12" />
           </div>
           <p className="mt-5 max-w-xs text-sm leading-relaxed">
             Providing structured risk advisory, market execution, and claims advocacy for complex

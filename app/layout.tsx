@@ -36,6 +36,18 @@ export const metadata: Metadata = {
     'Advocate Insurance Brokers',
   ],
   authors: [{ name: 'Advocate Insurance Brokers Ltd' }],
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+    other: [
+      { rel: 'android-chrome', url: '/android-chrome-192x192.png', sizes: '192x192' },
+      { rel: 'android-chrome', url: '/android-chrome-512x512.png', sizes: '512x512' },
+    ],
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
     locale: 'en_NG',
@@ -54,7 +66,7 @@ const jsonLd = {
   description:
     'Independent insurance brokerage and risk advisory firm specialising in risk advisory, insurance placement, and claims advocacy for complex industries.',
   url: 'https://aibltd.insure',
-  logo: 'https://aibltd.insure/images/logo-aib.svg',
+  logo: 'https://aibltd.insure/images/logo-aib.png',
   telephone: ['+2349131036089', '+2348087281548'],
   email: 'info@aibltd.insure',
   address: {
