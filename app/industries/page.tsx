@@ -32,7 +32,7 @@ const industries: IndustrySection[] = [
     blocks: [
       { icon: Shield, title: 'Sector Challenges', desc: 'Concentration of high-value assets in remote and offshore locations, volatile commodity markets, complex regulatory requirements, and significant environmental liability.' },
       { icon: AlertTriangle, title: 'Risk Environment', desc: 'Blowout and well control, fire and explosion, business interruption from equipment failure, pipeline and transportation liability, and political risk in operating jurisdictions.' },
-      { icon: Users, title: 'AIB Approach', desc: 'Technical underwriting submissions, structured programme design across property damage, business interruption, and liability, supported by specialist claims advocacy when losses occur.' },
+      { icon: Users, title: 'Our Approach', desc: 'Technical underwriting submissions, structured programme design across property damage, business interruption, and liability, supported by specialist claims advocacy when losses occur.' },
       { icon: Award, title: 'Market Capability', desc: "Access to Lloyd's of London, international energy markets, and local Nigerian capacity for combined local and international programme placements." },
     ],
   },
@@ -45,7 +45,7 @@ const industries: IndustrySection[] = [
     blocks: [
       { icon: Shield, title: 'Sector Challenges', desc: 'Global trade volatility, port congestion risks, complex liability under international maritime law, crew welfare obligations, and evolving IMO environmental regulations.' },
       { icon: AlertTriangle, title: 'Risk Environment', desc: "Hull and machinery damage, cargo loss and contamination, P&I liability, charterers' liability, offshore construction and installation risk, and port operational exposures." },
-      { icon: Users, title: 'AIB Approach', desc: 'Programme design aligned with international marine markets and IMO standards, structured across hull, cargo, and liability lines, with active claims management when incidents occur.' },
+      { icon: Users, title: 'Our Approach', desc: 'Programme design aligned with international marine markets and IMO standards, structured across hull, cargo, and liability lines, with active claims management when incidents occur.' },
       { icon: Award, title: 'Market Capability', desc: "Access to Lloyd's marine markets, IG P&I Clubs, and international underwriters with strong Nigerian coastal and regional capacity for combined placements." },
     ],
   },
@@ -58,7 +58,7 @@ const industries: IndustrySection[] = [
     blocks: [
       { icon: Shield, title: 'Sector Challenges', desc: 'Strict ICAO regulatory compliance, high-value fleet assets, third-party liability across multiple jurisdictions, and demanding maintenance and operational safety obligations.' },
       { icon: AlertTriangle, title: 'Risk Environment', desc: 'Hull and total loss, passenger and third-party liability, product liability, airport operational exposure, MRO and ground handling risk, and crew-related claims.' },
-      { icon: Users, title: 'AIB Approach', desc: 'Structured aviation programme design covering hull, liability, and ancillary coverages, with specialist market access and proactive claims advocacy support throughout the policy period.' },
+      { icon: Users, title: 'Our Approach', desc: 'Structured aviation programme design covering hull, liability, and ancillary coverages, with specialist market access and proactive claims advocacy support throughout the policy period.' },
       { icon: Award, title: 'Market Capability', desc: "Access to leading aviation insurance markets including Lloyd's and dedicated international underwriting capacity for commercial, charter, and general aviation operations." },
     ],
   },
@@ -71,7 +71,7 @@ const industries: IndustrySection[] = [
     blocks: [
       { icon: Shield, title: 'Sector Challenges', desc: 'Complex multi-stakeholder project structures, long construction timelines, demanding contractual obligations, natural peril exposure, and significant third-party liability.' },
       { icon: AlertTriangle, title: 'Risk Environment', desc: "Construction all risks (CAR), erection all risks (EAR), delay in start-up, contractors' plant and equipment, professional indemnity, and wrap-up liability." },
-      { icon: Users, title: 'AIB Approach', desc: 'Bespoke programme structuring for project-specific risk profiles, including delay in start-up and post-completion operational coverage, with active claims support throughout.' },
+      { icon: Users, title: 'Our Approach', desc: 'Bespoke programme structuring for project-specific risk profiles, including delay in start-up and post-completion operational coverage, with active claims support throughout.' },
       { icon: Award, title: 'Market Capability', desc: 'Access to specialist construction and engineering markets, project finance-compliant programme design, and transition support to long-term operational asset coverage.' },
     ],
   },
@@ -99,7 +99,7 @@ export default function IndustriesPage() {
             Critical Sectors.
           </>
         }
-        description="AIB provides risk advisory, insurance placement, and claims advocacy services tailored to industries operating in complex, capital-intensive, and highly regulated environments."
+        description="Advocate provides risk advisory, insurance placement, and claims advocacy services tailored to industries operating in complex, capital-intensive, and highly regulated environments."
         ctaLabel="Discuss Your Industry Risk"
         image="/images/hero-oil-platform.jpg"
       />
@@ -160,11 +160,11 @@ export default function IndustriesPage() {
         </section>
       ))}
 
-      {/* WHY AIB */}
+      {/* WHY Advocate */}
       <section className="bg-white py-20 md:py-28">
         <div className="container-page mx-auto max-w-3xl text-center">
           <FadeIn>
-            <p className="eyebrow">Why AIB</p>
+            <p className="eyebrow">Why Advocate</p>
             <h2 className="mt-3 text-3xl md:text-5xl">
               A Consistent Approach Across Complex Industries.
             </h2>

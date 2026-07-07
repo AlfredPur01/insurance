@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const cards: IconCard[] = [
   { icon: Shield, title: 'Sector Challenges', desc: 'Strict ICAO regulatory compliance, high-value fleet assets, multi-jurisdictional third-party liability exposure, demanding maintenance obligations, and significant reputational risk following any incident.' },
   { icon: AlertTriangle, title: 'Risk Environment', desc: 'Hull damage and total loss, passenger liability, third-party bodily injury and property damage, product liability, airport operational exposure, and MRO and ground handling risk.' },
-  { icon: Users, title: 'AIB Approach', desc: 'Structured aviation programme design covering hull, liability, and ancillary coverages, with specialist market access and proactive claims advocacy support from notification through to settlement.' },
+  { icon: Users, title: 'Advocate Approach', desc: 'Structured aviation programme design covering hull, liability, and ancillary coverages, with specialist market access and proactive claims advocacy support from notification through to settlement.' },
   { icon: Award, title: 'Market Capability', desc: "Access to leading aviation insurance markets including Lloyd's dedicated aviation syndicates and international underwriters with capacity for commercial, charter, and general aviation operations." },
 ]
 
@@ -38,7 +38,7 @@ export default function AviationPage() {
             Risk in Aerospace Operations.
           </>
         }
-        description="AIB provides risk advisory, insurance placement, and claims advocacy for airlines, charter operators, airports, MRO providers, and aerospace organisations operating in regulated aviation environments."
+        description="Advocate provides risk advisory, insurance placement, and claims advocacy for airlines, charter operators, airports, MRO providers, and aerospace organisations operating in regulated aviation environments."
         image="/images/industry-aviation.jpg"
       />
 
@@ -57,7 +57,7 @@ export default function AviationPage() {
                 consequences.
               </p>
               <p>
-                AIB&apos;s aviation practice works with commercial airlines, charter and business
+                Advocate&apos;s aviation practice works with commercial airlines, charter and business
                 aviation operators, airports, MRO providers, and aerospace organisations to design
                 and place insurance programmes that genuinely reflect the risk profile of their
                 operations. We engage dedicated aviation underwriters — not generalist markets — with

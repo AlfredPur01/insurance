@@ -20,6 +20,10 @@ next-env.d.ts
 # Production
 dist
 
+# TanStack/Nitro build output (leftover from previous framework)
+.output
+.wrangler
+
 # Environment
 .env
 .env*.local

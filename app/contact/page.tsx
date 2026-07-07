@@ -7,9 +7,9 @@ import { ContactForm } from '@/components/sections/ContactForm'
 import type { IconCard } from '@/types'
 
 export const metadata: Metadata = {
-  title: 'Contact AIB',
+  title: 'Contact Advocate',
   description:
-    'Reach AIB to discuss risk advisory, insurance placement, claims advocacy, or specialist market access.',
+    'Reach Advocate Insurance Brokers to discuss risk advisory, insurance placement, claims advocacy, or specialist market access.',
 }
 
 const benefits: IconCard[] = [
@@ -132,11 +132,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* WHY CONTACT AIB */}
+      {/* WHY CONTACT Advocate */}
       <section className="bg-navy-deep py-20 text-white md:py-28">
         <div className="container-page">
           <FadeIn className="max-w-2xl">
-            <p className="eyebrow">Why Contact AIB</p>
+            <p className="eyebrow">Why Contact Advocate</p>
             <h2 className="mt-3 text-3xl md:text-5xl">We Deliver More Than Insurance.</h2>
           </FadeIn>
           <div className="mt-14 grid gap-x-6 gap-y-12 text-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">

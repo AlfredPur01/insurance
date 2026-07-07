@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const cards: IconCard[] = [
   { icon: Shield, title: 'Sector Challenges', desc: 'Concentration of high-value assets in remote and offshore locations, volatile commodity markets, complex cross-border regulatory requirements, and significant environmental and third-party liability exposure.' },
   { icon: AlertTriangle, title: 'Risk Environment', desc: 'Blowout and well control incidents, fire and explosion, property damage and business interruption, pipeline and transportation liability, equipment failure, and political risk in operating jurisdictions.' },
-  { icon: Users, title: 'AIB Approach', desc: 'Detailed technical underwriting submissions, structured programme design across property damage, business interruption, and liability lines, underpinned by specialist claims advocacy when losses arise.' },
+  { icon: Users, title: 'Advocate Approach', desc: 'Detailed technical underwriting submissions, structured programme design across property damage, business interruption, and liability lines, underpinned by specialist claims advocacy when losses arise.' },
   { icon: Award, title: 'Market Capability', desc: "Access to Lloyd's of London, international energy markets, and local Nigerian capacity — enabling combined local and international programme placements aligned with regulatory requirements." },
 ]
 
@@ -38,7 +38,7 @@ export default function EnergyPage() {
             Long-Term Infrastructure Assets.
           </>
         }
-        description="AIB provides technically structured risk advisory, insurance placement, and claims advocacy services for upstream, midstream, downstream, and power generation operations across the energy sector."
+        description="Advocate provides technically structured risk advisory, insurance placement, and claims advocacy services for upstream, midstream, downstream, and power generation operations across the energy sector."
         image="/images/industry-energy.jpg"
       />
 
@@ -57,7 +57,7 @@ export default function EnergyPage() {
                 comprehensive but technically precise.
               </p>
               <p>
-                AIB&apos;s energy practice brings deep sector understanding to every client engagement.
+                Advocate&apos;s energy practice brings deep sector understanding to every client engagement.
                 We work with operators, contractors, and asset owners across upstream, midstream,
                 downstream, and power generation segments to structure programmes that accurately
                 reflect exposure, satisfy regulatory requirements, and provide meaningful financial

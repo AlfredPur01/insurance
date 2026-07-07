@@ -49,10 +49,10 @@ const metrics: IconCard[] = [
 const faqs: FaqItem[] = [
   { q: 'When should claims advocacy begin?', a: 'Claims advocacy should begin immediately following a loss event to ensure documentation, stakeholder engagement, and recovery planning commence without delay.' },
   { q: 'Why is documentation important?', a: 'Structured documentation supports recovery and ensures policy intent is preserved through every stage of the claim.' },
-  { q: 'Does AIB negotiate directly with insurers?', a: 'Yes — we engage directly with insurers and decision-makers on behalf of clients.' },
+  { q: 'Does Advocate negotiate directly with insurers?', a: 'Yes — we engage directly with insurers and decision-makers on behalf of clients.' },
   { q: 'Can claims advocacy support operational continuity?', a: 'Absolutely. Recovery extends beyond settlement to protecting cash flow and continuity.' },
   { q: 'What types of claims do you handle?', a: 'Property, business interruption, marine, aviation, energy, and complex liability claims.' },
-  { q: 'How does AIB ensure better recovery outcomes?', a: 'Through structured documentation, technical evaluation, and active negotiation aligned to policy objectives.' },
+  { q: 'How does Advocate ensure better recovery outcomes?', a: 'Through structured documentation, technical evaluation, and active negotiation aligned to policy objectives.' },
 ]
 
 const faqJsonLd = {

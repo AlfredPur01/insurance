@@ -21,11 +21,11 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL('https://aibltd.insure'),
   title: {
-    default: 'AIB | Structured Risk Advisory for Complex Industries',
-    template: '%s | AIB',
+    default: 'Advocate Insurance Brokers | Structured Risk Advisory for Complex Industries',
+    template: '%s | Advocate Insurance Brokers',
   },
   description:
-    'Anchorage Insurance Brokers — risk advisory, insurance placement, and claims advocacy for energy, marine, aviation, and engineering infrastructure.',
+    'Advocate Insurance Brokers Ltd — risk advisory, insurance placement, and claims advocacy for energy, marine, aviation, and engineering infrastructure.',
   keywords: [
     'insurance broker Nigeria',
     'risk advisory',
@@ -33,23 +33,24 @@ export const metadata: Metadata = {
     'aviation insurance',
     'energy insurance',
     'claims advocacy',
+    'Advocate Insurance Brokers',
   ],
-  authors: [{ name: 'AIB - African Insurance Brokers' }],
+  authors: [{ name: 'Advocate Insurance Brokers Ltd' }],
   openGraph: {
     type: 'website',
     locale: 'en_NG',
-    siteName: 'AIB',
-    title: 'AIB | Structured Risk Advisory for Complex Industries',
+    siteName: 'Advocate Insurance Brokers',
+    title: 'Advocate Insurance Brokers | Structured Risk Advisory for Complex Industries',
     description:
-      'Anchorage Insurance Brokers — risk advisory, insurance placement, and claims advocacy for energy, marine, aviation, and engineering infrastructure.',
+      'Advocate Insurance Brokers Ltd — risk advisory, insurance placement, and claims advocacy for energy, marine, aviation, and engineering infrastructure.',
   },
 }
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': ['Organization', 'InsuranceAgency'],
-  name: 'AIB - African Insurance Brokers Limited',
-  alternateName: 'Anchorage Insurance Brokers',
+  name: 'Advocate Insurance Brokers Ltd',
+  alternateName: 'Advocate Insurance Brokers',
   description:
     'Independent insurance brokerage and risk advisory firm specialising in risk advisory, insurance placement, and claims advocacy for complex industries.',
   url: 'https://aibltd.insure',

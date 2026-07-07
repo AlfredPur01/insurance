@@ -72,7 +72,7 @@ export default function ServicesPage() {
             Environments.
           </>
         }
-        description="AIB provides structured risk advisory, insurance placement, claims advocacy, and market access solutions designed to help organizations protect assets, preserve continuity, and support long-term resilience."
+        description="Advocate provides structured risk advisory, insurance placement, claims advocacy, and market access solutions designed to help organizations protect assets, preserve continuity, and support long-term resilience."
         ctaLabel="Discuss Your Risk Exposure"
         image="/images/hero-oil-platform.jpg"
       />

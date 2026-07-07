@@ -16,7 +16,7 @@ const contactSchema = z.object({
   message: z.string().optional(),
 })
 
-const FROM = 'AIB Website <onboarding@resend.dev>'
+const FROM = 'Advocate Insurance Brokers <onboarding@resend.dev>'
 const TEAM_EMAIL = 'info@aibltd.insure'
 
 export async function submitContactForm(formData: unknown): Promise<ActionResult> {
@@ -57,7 +57,7 @@ export async function submitContactForm(formData: unknown): Promise<ActionResult
     await resend.emails.send({
       from: FROM,
       to: data.email,
-      subject: 'Thank you for contacting AIB',
+      subject: 'Thank you for contacting Advocate Insurance Brokers',
       react: ConfirmationEmail({ fullName: data.fullName }),
     })
 

@@ -1,6 +1,6 @@
-# AIB — African Insurance Brokers Website
+# Advocate Insurance Brokers — Website
 
-Corporate website for **AIB (African Insurance Brokers Limited)** — a specialist insurance broker providing risk advisory, market placement, and claims advocacy across energy, marine, aviation, and engineering infrastructure sectors.
+Corporate website for **Advocate Insurance Brokers Ltd** — a specialist insurance broker providing risk advisory, market placement, and claims advocacy across energy, marine, aviation, and engineering infrastructure sectors.
 
 **Developer:** Alfred Ayilara Pur
 **Repository:** [github.com/AlfredPur01/insurance](https://github.com/AlfredPur01/insurance)
@@ -32,7 +32,7 @@ Corporate website for **AIB (African Insurance Brokers Limited)** — a speciali
 | `/industries/aviation` | Aviation sector detail page |
 | `/industries/engineering-infrastructure` | Engineering & Infrastructure detail page |
 | `/claims-advocacy` | Claims advocacy service page |
-| `/about` | About AIB |
+| `/about` | About Advocate |
 | `/contact` | Contact & consultation request form |
 
 ---
@@ -80,7 +80,7 @@ insurance/
 │       ├── FadeIn.tsx           # Scroll-triggered fade-up (Framer Motion)
 │       └── CountUp.tsx          # Animated number counter
 ├── emails/
-│   ├── notification.tsx         # Email to AIB team on new enquiry
+│   ├── notification.tsx         # Email to Advocate team on new enquiry
 │   └── confirmation.tsx         # Confirmation email to visitor
 ├── lib/
 │   └── resend.ts                # Resend client singleton
@@ -168,7 +168,7 @@ Add the `RESEND_API_KEY` environment variable in the Vercel dashboard before dep
 
 ## Contact
 
-**AIB — African Insurance Brokers Limited**
+**Advocate Insurance Brokers Ltd**
 - **Head Office:** No 27a Babatunde Jose, Off Adetokunbo Ademola, Victoria Island, Lagos, Nigeria
 - **Branch Office:** 55/57 Apara Road, GRA Phase II, Port Harcourt, Rivers State, Nigeria
 - **Phone:** +234 9131036089 / +234 8087281548

@@ -74,11 +74,11 @@ export function Navbar() {
       }`}
     >
       <div className="container-page flex items-center justify-between py-3 md:py-4">
-        <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="AIB home">
+        <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Advocate Insurance Brokers home">
           <div className="rounded-md bg-white p-1 shadow-sm ring-1 ring-black/5">
             <Image
               src="/images/logo-aib.svg"
-              alt="AIB"
+              alt="Advocate Insurance Brokers"
               width={44}
               height={44}
               className="h-9 w-9 md:h-11 md:w-11"

@@ -8,9 +8,9 @@ import { WorldMap } from '@/components/sections/WorldMap'
 import type { IconCard, NamedSector, NumberedStep } from '@/types'
 
 export const metadata: Metadata = {
-  title: 'About AIB',
+  title: 'About Advocate',
   description:
-    'Anchorage Insurance Brokers is an independent insurance brokerage and risk advisory firm helping organizations identify, manage, and transfer risk.',
+    'Advocate Insurance Brokers Ltd is an independent insurance brokerage and risk advisory firm helping organizations identify, manage, and transfer risk.',
 }
 
 const approach: IconCard[] = [
@@ -60,7 +60,7 @@ export default function AboutPage() {
             Proven Industry Expertise.
           </>
         }
-        description="Anchorage Insurance Brokers provides strategic risk advisory, insurance placement, and claims advocacy services designed to help organizations navigate complex operational and commercial environments with confidence."
+        description="Advocate Insurance Brokers provides strategic risk advisory, insurance placement, and claims advocacy services designed to help organizations navigate complex operational and commercial environments with confidence."
         ctaLabel="Explore Our Approach"
         image="/images/hero-boardroom.jpg"
       />
@@ -77,7 +77,7 @@ export default function AboutPage() {
             </h2>
             <div className="mt-6 space-y-4 text-muted-foreground">
               <p>
-                Anchorage Insurance Brokers is an independent insurance brokerage and risk advisory
+                Advocate Insurance Brokers is an independent insurance brokerage and risk advisory
                 firm committed to helping organizations identify, manage, and transfer risk
                 effectively.
               </p>
@@ -216,7 +216,7 @@ export default function AboutPage() {
               Expertise.
             </h2>
             <p className="mt-5 text-muted-foreground">
-              Organizations choose AIB because effective risk management requires more than insurance
+              Organizations choose Advocate because effective risk management requires more than insurance
               placement. It requires strategic thinking, market insight, and long-term partnership.
             </p>
           </FadeIn>

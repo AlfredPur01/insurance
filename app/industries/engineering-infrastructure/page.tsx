@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const cards: IconCard[] = [
   { icon: Shield, title: 'Sector Challenges', desc: 'Complex multi-stakeholder project structures, long construction and commissioning timelines, demanding contractual liability obligations, natural peril exposure, and significant third-party property and bodily injury risk.' },
   { icon: AlertTriangle, title: 'Risk Environment', desc: "Construction all risks (CAR), erection all risks (EAR), delay in start-up, contractors' plant and equipment, professional indemnity, public liability, and environmental impairment liability." },
-  { icon: Users, title: 'AIB Approach', desc: 'Bespoke programme structuring for project-specific risk profiles, including delay in start-up and post-completion operational coverage, with active claims support throughout the full project and operational lifecycle.' },
+  { icon: Users, title: 'Advocate Approach', desc: 'Bespoke programme structuring for project-specific risk profiles, including delay in start-up and post-completion operational coverage, with active claims support throughout the full project and operational lifecycle.' },
   { icon: Award, title: 'Market Capability', desc: 'Access to specialist construction and engineering underwriters, project finance-compliant programme design, and transition support to long-term operational asset coverage as projects move into service.' },
 ]
 
@@ -38,7 +38,7 @@ export default function EngineeringPage() {
             Long-Term Infrastructure Assets.
           </>
         }
-        description="AIB provides risk advisory, insurance placement, and claims advocacy for construction contractors, project owners, developers, and operators of major engineering and infrastructure assets."
+        description="Advocate provides risk advisory, insurance placement, and claims advocacy for construction contractors, project owners, developers, and operators of major engineering and infrastructure assets."
         image="/images/industry-infrastructure.jpg"
       />
 
@@ -57,7 +57,7 @@ export default function EngineeringPage() {
                 prove costly when losses arise.
               </p>
               <p>
-                AIB&apos;s engineering and infrastructure practice works with project owners,
+                Advocate&apos;s engineering and infrastructure practice works with project owners,
                 developers, EPC contractors, and financiers to structure insurance programmes aligned
                 with the risk profile of each specific project. We bring technical understanding of
                 construction and engineering risk to the market placement process — engaging

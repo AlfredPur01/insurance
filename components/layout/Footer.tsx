@@ -23,7 +23,7 @@ export function Footer() {
       <div className="container-page grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="inline-block rounded-md bg-white p-1 ring-1 ring-white/10">
-            <Image src="/images/logo-aib.svg" alt="AIB" width={48} height={48} className="h-12 w-12" />
+            <Image src="/images/logo-aib.svg" alt="Advocate Insurance Brokers" width={48} height={48} className="h-12 w-12" />
           </div>
           <p className="mt-5 max-w-xs text-sm leading-relaxed">
             Providing structured risk advisory, market execution, and claims advocacy for complex
@@ -98,8 +98,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col items-center justify-between gap-3 py-5 text-xs text-white/60 sm:flex-row">
           <p>
-            &copy; {new Date().getFullYear()} AIB &mdash; African Insurance Brokers Limited. All
-            Rights Reserved.
+            &copy; {new Date().getFullYear()} Advocate Insurance Brokers Ltd. All Rights Reserved.
           </p>
           <div className="flex gap-6">
             <Link href="/contact" className="hover:text-white">

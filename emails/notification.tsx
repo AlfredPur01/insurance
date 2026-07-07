@@ -54,13 +54,13 @@ export function NotificationEmail({
               New Website Enquiry
             </Text>
             <Heading style={{ color: '#ffffff', fontSize: '22px', margin: '8px 0 0', fontWeight: 600 }}>
-              AIB &mdash; Contact Form Submission
+              Advocate Insurance Brokers &mdash; Contact Form Submission
             </Heading>
           </Section>
 
           <Section style={{ padding: '28px 32px' }}>
             <Text style={{ color: MUTED, fontSize: '14px', margin: '0 0 20px' }}>
-              A new enquiry has been submitted through the AIB website. Details are below.
+              A new enquiry has been submitted through the Advocate Insurance Brokers website. Details are below.
             </Text>
 
             {rows.map((r) => (
@@ -86,7 +86,7 @@ export function NotificationEmail({
 
           <Section style={{ backgroundColor: '#f8f9fc', padding: '16px 32px', borderTop: '1px solid #e2e8f0' }}>
             <Text style={{ color: MUTED, fontSize: '12px', margin: 0 }}>
-              AIB &mdash; African Insurance Brokers Limited. This message was generated automatically.
+              Advocate Insurance Brokers Ltd. This message was generated automatically.
             </Text>
           </Section>
         </Container>

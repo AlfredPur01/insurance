@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const cards: IconCard[] = [
   { icon: Shield, title: 'Sector Challenges', desc: 'Global trade volatility, port congestion and infrastructure risk, complex liability frameworks under international maritime law, crew welfare obligations, piracy exposure, and evolving IMO environmental regulations.' },
   { icon: AlertTriangle, title: 'Risk Environment', desc: "Hull and machinery damage, cargo loss and contamination, P&I liability, charterers' liability, offshore construction and installation risk, and port and terminal operational exposures." },
-  { icon: Users, title: 'AIB Approach', desc: 'Programme design aligned with international marine markets and IMO standards, structured coverage across hull, cargo, and liability lines, with active claims management when incidents occur at sea or port.' },
+  { icon: Users, title: 'Advocate Approach', desc: 'Programme design aligned with international marine markets and IMO standards, structured coverage across hull, cargo, and liability lines, with active claims management when incidents occur at sea or port.' },
   { icon: Award, title: 'Market Capability', desc: "Access to leading marine underwriters including Lloyd's of London, IG P&I Clubs, and international markets with strong Nigerian coastal and regional capacity for local and combined placements." },
 ]
 
@@ -38,7 +38,7 @@ export default function MarinePage() {
             Maritime Operations.
           </>
         }
-        description="AIB provides risk advisory, insurance placement, and claims advocacy for shipowners, operators, charterers, cargo interests, and offshore contractors across the maritime sector."
+        description="Advocate provides risk advisory, insurance placement, and claims advocacy for shipowners, operators, charterers, cargo interests, and offshore contractors across the maritime sector."
         image="/images/industry-marine.jpg"
       />
 
@@ -57,7 +57,7 @@ export default function MarinePage() {
                 precision and market access that goes beyond standard policy wordings.
               </p>
               <p>
-                AIB&apos;s marine practice supports shipowners, operators, cargo interests, terminal
+                Advocate&apos;s marine practice supports shipowners, operators, cargo interests, terminal
                 operators, and offshore contractors with structured insurance programmes tailored to
                 the commercial realities of the maritime industry. We work with specialist
                 underwriters who understand how marine losses unfold and who have the appetite and
