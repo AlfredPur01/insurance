@@ -14,7 +14,7 @@ const enquirySchema = z.object({
   message: z.string().min(1, 'A message is required'),
 })
 
-const FROM = 'Advocate Insurance Brokers <onboarding@resend.dev>'
+const FROM = 'Advocate Insurance Brokers <info@aibltd.insure>'
 const TEAM_EMAIL = 'info@aibltd.insure'
 
 export async function submitEnquiryForm(formData: unknown): Promise<ActionResult> {

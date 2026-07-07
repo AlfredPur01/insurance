@@ -16,7 +16,7 @@ const contactSchema = z.object({
   message: z.string().optional(),
 })
 
-const FROM = 'Advocate Insurance Brokers <onboarding@resend.dev>'
+const FROM = 'Advocate Insurance Brokers <info@aibltd.insure>'
 const TEAM_EMAIL = 'info@aibltd.insure'
 
 export async function submitContactForm(formData: unknown): Promise<ActionResult> {
