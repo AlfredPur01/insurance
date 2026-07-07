@@ -32,13 +32,8 @@ export function PageHero({
         <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/85 to-navy-deep/30" />
       </div>
 
-      <div
-        className={
-          align === 'center'
-            ? 'container-page mx-auto max-w-3xl text-center'
-            : 'container-hero max-w-3xl'
-        }
-      >
+      <div className="container-page">
+        <div className={align === 'center' ? 'mx-auto max-w-3xl text-center' : 'max-w-3xl'}>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -79,6 +74,7 @@ export function PageHero({
             </Link>
           </motion.div>
         )}
+        </div>
       </div>
     </section>
   )

@@ -19,7 +19,8 @@ export function HomeHero() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/85 to-transparent" />
       </div>
-      <div className="container-hero max-w-3xl">
+      <div className="container-page">
+        <div className="max-w-3xl">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,6 +70,7 @@ export function HomeHero() {
             Explore Our Services
           </Link>
         </motion.div>
+        </div>
       </div>
     </section>
   )
